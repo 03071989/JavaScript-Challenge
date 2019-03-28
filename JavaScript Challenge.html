@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+</head>
+
+<body>
+
+    <h1>JavaScript</h1>
+    <script type="text/JavaScript">
+
+           var house = {
+areas: [{
+livingRoom: {
+items: ['tv','sofa'],
+},
+bedroomOne: {
+items: ['bed','washing machine'],
+windows: 3
+},
+bedroomTwo:{
+items: ['bed','bed','desk'],
+windows: 4
+},
+kitchen:{
+items: ['fridge','broken chair'],
+}
+}],
+garden: [true, 'Red Rose'],
+garage: {
+car: {
+color: 'red',
+wheels: 4,
+honk: ()=>{alert("Beep")}
+}
+}
+}
+
+// Find total number of areas in the house
+    console.log(Object.keys(house.areas[0]).length);
+
+
+// Add a dining table to the living room
+var myItems = house.areas[0].livingRoom.items;
+myItems.push('dining table');
+console.log(myItems)
+
+// Add a stove to the kitchen
+
+var kitchenItems = house.areas[0].kitchen.items;
+kitchenItems.push('stove');
+console.log(kitchenItems);
+
+
+
+// Remove the washing machine from bedroomOne
+
+var bedroomOneItems = house.areas[0].bedroomOne.items;
+bedroomOneItems.pop();
+console.log("prints bed: ",bedroomOneItems);
+
+
+bedroomOneItems.splice(0, 1);
+console.log("empty array: ",bedroomOneItems);
+
+
+// Find the total number of beds in all rooms
+
+var myItemsBed = house.areas[0].livingRoom.items.filter(item => item == "bed");;
+console.log("No. of beds in living room ", myItemsBed.length);
+
+var myItemsBed2 = house.areas[0].bedroomOne.items.filter(item => item == "bed");;
+console.log("Should read zero, as spliced previously. No. of beds in bedroom one ", myItemsBed2.length);
+
+var myItemsBed3 = house.areas[0].bedroomTwo.items.filter(item => item == "bed");;
+console.log("No. of beds in bedroom two ", myItemsBed3.length);
+
+var myItemsBed4 = house.areas[0].kitchen.items.filter(item => item == "bed");;
+console.log("No. of beds in kitchen ", myItemsBed4.length);
+
+var totalNumBeds = myItemsBed.length + myItemsBed2.length + myItemsBed3.length + myItemsBed4.length;
+console.log("Total Number of beds in house" ,totalNumBeds);
+
+
+// Change the color of the car to blue
+
+house.garage.car.color = "blue";
+console.log("Car color change to" ,house.garage.car.color);
+
+
+// Add a another car to the garage with a honk function
+house.garage.car2 = {
+color: 'yellow',
+wheels: 6,
+honk: ()=>{alert("honk")}};
+
+console.log("my second car added to garage" ,house.garage.car2);
+
+
+// Make the new car honk
+
+house.garage.car2.honk()
+
+// Change the 'broken chair' in the kitchen to 'new chair'
+
+kitchenItems.splice(1, 1, "new chair");
+console.log("replacing broken chair: ",kitchenItems);
+
+// If the house has a garden, console.log the name of the flower
+
+console.log("my gardens flower" ,house.garden[1]);
+
+            
+        </script>
+</body>
+
+</html>
